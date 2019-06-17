@@ -39,4 +39,4 @@ npm run dist
 
 ## Adding Dependencies
 
-If you need to `require` or `import` the dependency in `./app`, you should install it in `./app` folder as production dependency, otherwise just install it in root folder as dev dependency.
+If you need to `require` the dependency in `./app`, you should install it in `./app` folder as production dependency, otherwise just install it in root folder as dev dependency.
