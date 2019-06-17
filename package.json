@@ -18,6 +18,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.1",
+    "poi": "^12.6.10",
     "prettier": "^1.18.2",
     "xo": "^0.24.0"
   },
