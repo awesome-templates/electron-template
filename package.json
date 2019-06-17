@@ -1,0 +1,79 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "xo",
+    "test": "npm run lint",
+    "start-main": "electron ./app",
+    "start-renderer": "poi -s",
+    "build-renderer": "poi --prod",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --macos --linux --windows"
+  },
+  "devDependencies": {
+    "electron": "^5.0.4",
+    "electron-builder": "^20.43.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "extends": [
+      "plugin:prettier/recommended"
+    ],
+    "envs": [
+      "node",
+      "browser"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js}": [
+        "xo --fix",
+        "git add"
+      ],
+      "*.{json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "build": {
+    "appId": "com.company.AppName",
+    "mac": {
+      "category": "public.app-category.social-networking",
+      "darkModeSupport": true
+    },
+    "dmg": {
+      "iconSize": 160,
+      "contents": [
+        {
+          "x": 180,
+          "y": 170
+        },
+        {
+          "x": 480,
+          "y": 170,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Network;Chat"
+    }
+  }
+}
