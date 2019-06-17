@@ -40,3 +40,25 @@ npm run dist
 ## Adding Dependencies
 
 If you need to `require` the dependency in `./app`, you should install it in `./app` folder as production dependency, otherwise just install it in root folder as dev dependency.
+
+## Integrations
+
+### React
+
+Poi works with React out of the box:
+
+```bash
+# In root directory:
+npm i react react-dom -D
+```
+
+That's it. But if you need Hot Module Replacement support for React components, you need to [configure the babel plugins](https://poi.js.org/guide/frameworks.html#react).
+
+### Vue
+
+```bash
+# In root directory:
+npm i vue vue-template-compiler -D
+```
+
+Then you get full Vue support (including Hot Module Replacement).
