@@ -2,15 +2,15 @@
 
 ## Main Process
 
-The code for main process is populated under `./app` folder.
+The code for main process is populated under `./main` folder, the code is bundled to `./app` folder.
 
 In development it will load renderer process from `http://localhost:4000`, in production it loads `./app/renderer/index.html` instead.
 
 ## Renderer Process
 
-The code for renderer process is populated under `./renderer` folder, and we use [Poi](https://poi.js.org) to bundle it.
+The code for renderer process is populated under `./renderer` folder, the code is bundled to `./app/renderer` folder.
 
-In development the renderer process is served at `http://localhost:4000`, in production it will be bundled to `./app/renderer` folder.
+In development the renderer process is served at `http://localhost:3000` which should be loaded in your Electron main process.
 
 ## Development
 
@@ -37,28 +37,6 @@ Then create the apps for current platform:
 npm run dist
 ```
 
-## Adding Dependencies
+## Bundling Dependencies
 
-If you need to `require` the dependency in `./app`, you should install it in `./app` folder as production dependency, otherwise just install it in root folder as dev dependency.
-
-## Integrations
-
-### React
-
-Poi works with React out of the box:
-
-```bash
-# In root directory:
-npm i react react-dom -D
-```
-
-That's it. But if you need Hot Module Replacement support for React components, you need to [configure the babel plugins](https://poi.js.org/guide/frameworks.html#react).
-
-### Vue
-
-```bash
-# In root directory:
-npm i vue vue-template-compiler -D
-```
-
-Then you get full Vue support (including Hot Module Replacement).
+Packages listed in `dependencies` in your `package.json` file will be excluded from the bundle, otherwise they will be bundled.

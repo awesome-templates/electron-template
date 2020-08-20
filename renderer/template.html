@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title><%= html.title %></title>
+    <title><%= title %></title>
     <script>
-    // Add `node_modules/` to global paths so `require` works properly in development
-    <% if (html.nodeModulesPath) { %>
-      require('module').globalPaths.push('<%= html.nodeModulesPath %>')
-    <% } %>
+      // Add `node_modules/` to global paths so `require` works properly in development
+      <% if (nodeModulesPath) { %>
+        require('module').globalPaths.push('<%= nodeModulesPath %>')
+      <% } %>
     </script>
   </head>
   <body>

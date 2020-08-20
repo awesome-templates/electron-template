@@ -1,35 +1,51 @@
 {
+  "name": "my-app",
+  "productName": "My App",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "postinstall": "electron-builder install-app-deps",
-    "lint": "xo",
-    "test": "npm run lint",
-    "start-main": "electron ./app",
-    "start-renderer": "poi -s",
-    "build-renderer": "poi --prod",
+    "ts": "node -r sucrase/register",
+    "test": "echo lol",
+    "start-main": "electron ./app/main",
+    "start-renderer": "yarn ts scripts/server.ts",
+    "build-renderer": "yarn ts scripts/build.ts",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --macos --linux --windows"
   },
-  "devDependencies": {
-    "electron": "^5.0.4",
-    "electron-builder": "^20.43.0",
-    "eslint-config-prettier": "^5.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^2.4.1",
-    "lint-staged": "^8.2.1",
-    "poi": "^12.6.10",
-    "prettier": "^1.18.2",
-    "xo": "^0.24.0"
+  "dependencies": {
+    "electron-context-menu": "^2.3.0",
+    "electron-debug": "^3.1.0",
+    "electron-store": "^6.0.0",
+    "electron-unhandled": "^3.0.2",
+    "electron-updater": "^4.3.4",
+    "electron-util": "^0.14.2"
   },
-  "xo": {
-    "extends": [
-      "plugin:prettier/recommended"
-    ],
-    "envs": [
-      "node",
-      "browser"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/copy-webpack-plugin": "^6.0.0",
+    "@types/express": "^4.17.7",
+    "@types/mini-css-extract-plugin": "^0.9.1",
+    "@types/node": "^14.6.0",
+    "@types/webpack": "^4.41.21",
+    "@types/webpack-dev-middleware": "^3.7.2",
+    "@types/webpack-hot-middleware": "^2.25.3",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "electron": "^9.2.1",
+    "electron-builder": "^22.8.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "mini-css-extract-plugin": "^0.10.0",
+    "prettier": "^2.0.5",
+    "sucrase": "^3.15.0",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^5.1.2"
   },
   "husky": {
     "hooks": {
@@ -37,16 +53,9 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.{js}": [
-        "xo --fix",
-        "git add"
-      ],
-      "*.{json,md}": [
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "*.{js,tsx,tsx,jsx,json,md}": [
+      "prettier --write"
+    ]
   },
   "build": {
     "appId": "com.company.AppName",

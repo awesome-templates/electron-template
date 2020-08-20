@@ -1,1 +1,0 @@
-document.write('Edit ./renderer/index.js and save to reload!')
