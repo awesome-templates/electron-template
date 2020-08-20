@@ -2,7 +2,7 @@
 
 ## Features
 
-- [Bundle the renderer with Poi](./template-readme.md#renderer-process)
+- All the code are bundled by webpack.
 - [`electron-builder`](https://www.electron.build/) fully set up to create cross-platform builds
 - [Silent auto-updates](https://www.electron.build/auto-update.html)
 - App menu that adheres to the system user interface guidelines
